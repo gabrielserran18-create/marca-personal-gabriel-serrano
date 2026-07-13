@@ -11,6 +11,12 @@
   <meta name="twitter:card" content="summary"/>
   <meta name="twitter:title" content="Gabriel Serrano · Construir con criterio"/>
   <meta name="twitter:description" content="Estrategia comercial, marketing e IA aplicada a negocio desde experiencia real."/>
+  <meta name="twitter:image" content="https://gabrielserran18-create.github.io/marca-personal-gabriel-serrano/Linkdn1.png"/>
+  <meta property="og:url" content="https://gabrielserran18-create.github.io/marca-personal-gabriel-serrano/"/>
+  <meta property="og:image" content="https://gabrielserran18-create.github.io/marca-personal-gabriel-serrano/Linkdn1.png"/>
+  <meta property="og:locale" content="es_PE"/>
+  <link rel="canonical" href="https://gabrielserran18-create.github.io/marca-personal-gabriel-serrano/"/>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230E1318'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-size='27' fill='%23E8A100' text-anchor='middle'%3EGS%3C/text%3E%3C/svg%3E"/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -116,20 +122,6 @@
       transition:width 80ms linear;
     }
 
-    /* ─── TWEAKS ─── */
-    #tweaks-panel {
-      display:none; position:fixed; bottom:24px; right:24px; z-index:9999;
-      width:230px; background:var(--paper); color:var(--ink);
-      border-radius:4px; padding:20px;
-      box-shadow:0 24px 80px rgba(0,0,0,0.4);
-      font-family:var(--mono); font-size:0.72rem;
-      border-top:3px solid var(--amber);
-    }
-    #tweaks-panel.on { display:block; }
-    #tweaks-panel h4 { font-family:var(--serif); font-size:1rem; margin-bottom:14px; }
-    .tw-row { margin-bottom:12px; }
-    .tw-row label { display:block; opacity:.55; margin-bottom:4px; text-transform:uppercase; letter-spacing:.06em; }
-    .tw-row select, .tw-row input[type=range] { width:100%; border:1px solid var(--rule-d); border-radius:3px; padding:5px 8px; font-family:inherit; font-size:.72rem; background:white; }
     .tw-row input[type=range] { padding:0; border:none; accent-color:var(--amber); }
 
     /* ─── NOISE TEXTURE OVERLAY ─── */
@@ -1226,7 +1218,7 @@
 <!-- FOOTER -->
 <footer class="footer">
   <span class="footer-brand">Gabriel Serrano</span>
-  <span class="footer-location">Lima, Perú · 2025</span>
+  <span class="footer-location">Lima, Perú · 2026</span>
   <span class="footer-social">
     <a href="https://www.linkedin.com/in/gabriel-serrano-707b66251" target="_blank" rel="noopener" aria-label="LinkedIn">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v15H.22V8zm7.4 0h4.36v2.05h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.48 3.04 5.48 7v8.31h-4.56v-7.37c0-1.76-.03-4.02-2.45-4.02-2.45 0-2.83 1.91-2.83 3.89V23H7.62V8z"/></svg>
@@ -1242,31 +1234,6 @@
 </footer>
 
 </div><!-- /.page-content -->
-
-<!-- TWEAKS -->
-<div id="tweaks-panel">
-  <h4>Tweaks</h4>
-  <div class="tw-row">
-    <label>Color acento</label>
-    <select id="tw-accent">
-      <option value="#E8A100">Ámbar (original)</option>
-      <option value="#2563EB">Azul criterio</option>
-      <option value="#0F9070">Verde teal</option>
-    </select>
-  </div>
-  <div class="tw-row">
-    <label>Fondo base</label>
-    <select id="tw-bg">
-      <option value="#0E1318">Carbon oscuro (original)</option>
-      <option value="#121820">Muy oscuro</option>
-      <option value="#1A2535">Azul noche</option>
-    </select>
-  </div>
-  <div class="tw-row">
-    <label>Tamaño texto</label>
-    <input type="range" id="tw-size" min="14" max="18" step="1" value="16"/>
-  </div>
-</div>
 
 <script>
 (function(){
@@ -1636,29 +1603,9 @@
     }
   }
 
-  /* ─── TWEAKS ─── */
-  document.getElementById('tw-accent').addEventListener('change', e=>{
-    document.documentElement.style.setProperty('--amber', e.target.value);
-    window.parent.postMessage({type:'__edit_mode_set_keys', edits:{accent:e.target.value}}, '*');
-  });
-  document.getElementById('tw-bg').addEventListener('change', e=>{
-    document.documentElement.style.setProperty('--ink', e.target.value);
-    window.parent.postMessage({type:'__edit_mode_set_keys', edits:{ink:e.target.value}}, '*');
-  });
-  document.getElementById('tw-size').addEventListener('input', e=>{
-    document.documentElement.style.fontSize = e.target.value + 'px';
-    window.parent.postMessage({type:'__edit_mode_set_keys', edits:{fontSize:+e.target.value}}, '*');
-  });
-
   /* ─── FORMSPREE ─── */
   window.formspree = window.formspree || function(){ (formspree.q = formspree.q || []).push(arguments); };
   formspree('initForm', { formElement: '#contact-form', formId: 'xkokaond' });
-
-  window.addEventListener('message', e=>{
-    if(e.data && e.data.type === '__activate_edit_mode')   document.getElementById('tweaks-panel').classList.add('on');
-    if(e.data && e.data.type === '__deactivate_edit_mode') document.getElementById('tweaks-panel').classList.remove('on');
-  });
-  window.parent.postMessage({type:'__edit_mode_available'}, '*');
 })();
 </script>
 <script src="https://unpkg.com/@formspree/ajax@1" defer></script>

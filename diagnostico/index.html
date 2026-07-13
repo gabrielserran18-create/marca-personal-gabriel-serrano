@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Diagnóstico de Autoridad Digital — REFERENTE</title>
+<meta name="description" content="Descubre en 3 minutos qué tan cerca estás de ser el referente de tu sector. Diagnóstico gratuito de tu presencia digital." />
+<style>
+/* ============================================================
+   REFERENTE — Diagnóstico de Autoridad Digital
+   100% autocontenido. Sin dependencias. Funciona offline.
+   Edita el bloque CONFIG (más abajo, en <script>) con tus datos.
+   ============================================================ */
+:root{
+  --bg-0:#0a0e1c; --bg-1:#0f1730; --bg-2:#16203f;
+  --surface:#141d39; --surface-2:#1b2750; --line:rgba(255,255,255,.09);
+  --text:#eaf0fb; --muted:#9aa6c4; --muted-2:#6d7aa0;
+  --gold:#e8b84b; --gold-soft:#f2d385; --teal:#34d3a6;
+  --red:#e5484d; --orange:#f7861c; --amber:#e8b84b; --green:#2fbf71;
+  --shadow:0 20px 60px rgba(0,0,0,.45);
+  --radius:18px;
+  --serif:Georgia,'Times New Roman',serif;
+  --sans:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:var(--sans);
+  color:var(--text);
+  background:
+    radial-gradient(1200px 700px at 80% -10%, rgba(232,184,75,.10), transparent 60%),
+    radial-gradient(900px 600px at -10% 110%, rgba(52,211,166,.08), transparent 60%),
+    linear-gradient(160deg,var(--bg-0),var(--bg-1) 55%,var(--bg-2));
+  background-attachment:fixed;
+  min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.5;
+}
+.wrap{max-width:880px;margin:0 auto;padding:28px 20px 80px}
+.brandbar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:30px}
+.brand{display:flex;align-items:center;gap:11px;font-weight:700;letter-spacing:.14em;font-size:.82rem;text-transform:uppercase}
+.brand .dot{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--gold),#b98a1f);display:grid;place-items:center;color:#1a1304;font-family:var(--serif);font-weight:700;font-size:1.05rem;box-shadow:0 6px 18px rgba(232,184,75,.35)}
+.brand small{color:var(--muted);font-weight:600;letter-spacing:.04em;text-transform:none;font-size:.74rem}
+.tag-free{font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-soft);border:1px solid rgba(232,184,75,.35);padding:5px 11px;border-radius:999px;background:rgba(232,184,75,.06)}
+
+.card{background:linear-gradient(180deg,var(--surface),rgba(20,29,57,.7));border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:38px 34px}
+@media(max-width:560px){.card{padding:26px 20px}.wrap{padding:18px 14px 60px}}
+
+/* INTRO */
+.eyebrow{color:var(--gold-soft);font-weight:700;letter-spacing:.16em;text-transform:uppercase;font-size:.74rem;margin-bottom:16px}
+h1{font-family:var(--serif);font-weight:700;font-size:2.5rem;line-height:1.1;letter-spacing:-.01em;margin-bottom:16px}
+h1 .accent{color:var(--gold);font-style:italic}
+@media(max-width:560px){h1{font-size:1.85rem}}
+.lead{color:var(--muted);font-size:1.08rem;max-width:62ch;margin-bottom:26px}
+.bullets{display:grid;gap:12px;margin:26px 0 30px}
+.bullets li{list-style:none;display:flex;gap:12px;align-items:flex-start;color:#cdd6ec;font-size:.98rem}
+.bullets .ic{flex:0 0 auto;width:24px;height:24px;border-radius:7px;background:rgba(52,211,166,.14);color:var(--teal);display:grid;place-items:center;font-weight:700;font-size:.85rem;margin-top:1px}
+.meta-row{display:flex;flex-wrap:wrap;gap:18px;color:var(--muted-2);font-size:.85rem;margin-top:8px}
+.meta-row span{display:flex;align-items:center;gap:7px}
+
+.btn{appearance:none;border:none;cursor:pointer;font-family:inherit;font-weight:700;border-radius:12px;padding:16px 26px;font-size:1rem;text-decoration:none;transition:transform .12s ease,box-shadow .2s ease,background .2s;display:inline-flex;align-items:center;justify-content:center;gap:10px}
+.btn-primary{background:linear-gradient(135deg,var(--gold),#cf9a26);color:#1a1304;box-shadow:0 12px 30px rgba(232,184,75,.32)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 16px 38px rgba(232,184,75,.42)}
+.btn-ghost{background:rgba(255,255,255,.05);color:var(--text);border:1px solid var(--line)}
+.btn-ghost:hover{background:rgba(255,255,255,.09)}
+.btn-wa{background:linear-gradient(135deg,#25d366,#128c4b);color:#04240f;box-shadow:0 12px 30px rgba(37,211,102,.3)}
+.btn-wa:hover{transform:translateY(-2px)}
+.btn-block{width:100%}
+.btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+
+/* FORM (datos) */
+.field{margin-bottom:18px}
+.field label{display:block;font-weight:600;font-size:.9rem;margin-bottom:7px;color:#cdd6ec}
+.field .hint{color:var(--muted-2);font-weight:400;font-size:.8rem}
+.field input{width:100%;background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:11px;padding:14px 15px;color:var(--text);font-family:inherit;font-size:1rem;transition:border .2s,box-shadow .2s}
+.field input:focus{outline:none;border-color:rgba(232,184,75,.6);box-shadow:0 0 0 3px rgba(232,184,75,.14)}
+.field input::placeholder{color:var(--muted-2)}
+.note{background:rgba(232,184,75,.06);border:1px solid rgba(232,184,75,.22);border-radius:12px;padding:13px 15px;color:var(--gold-soft);font-size:.85rem;margin:6px 0 22px;display:flex;gap:10px}
+.note b{color:var(--gold)}
+
+/* QUESTIONS */
+.progress-wrap{margin-bottom:24px}
+.progress-top{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--muted);margin-bottom:8px}
+.progress-top .dim{color:var(--gold-soft);font-weight:700;letter-spacing:.04em;text-transform:uppercase;font-size:.72rem}
+.bar{height:7px;background:rgba(255,255,255,.08);border-radius:99px;overflow:hidden}
+.bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--teal));border-radius:99px;transition:width .35s cubic-bezier(.4,0,.2,1)}
+.q-num{font-family:var(--serif);font-size:.9rem;color:var(--muted-2);margin-bottom:10px}
+.q-text{font-family:var(--serif);font-size:1.55rem;line-height:1.25;margin-bottom:24px;letter-spacing:-.01em}
+@media(max-width:560px){.q-text{font-size:1.25rem}}
+.options{display:grid;gap:12px}
+.opt{text-align:left;background:rgba(255,255,255,.035);border:1px solid var(--line);border-radius:13px;padding:16px 18px;cursor:pointer;color:#dfe6f6;font-size:.98rem;font-family:inherit;display:flex;align-items:center;gap:14px;transition:border .15s,background .15s,transform .1s}
+.opt:hover{border-color:rgba(232,184,75,.5);background:rgba(232,184,75,.07);transform:translateX(3px)}
+.opt .key{flex:0 0 auto;width:26px;height:26px;border-radius:8px;border:1px solid var(--line);display:grid;place-items:center;font-weight:700;font-size:.8rem;color:var(--muted)}
+.opt.sel{border-color:var(--gold);background:rgba(232,184,75,.12)}
+.opt.sel .key{background:var(--gold);color:#1a1304;border-color:var(--gold)}
+.q-nav{display:flex;justify-content:space-between;margin-top:24px;gap:12px}
+.linklike{background:none;border:none;color:var(--muted);cursor:pointer;font-family:inherit;font-size:.9rem;padding:10px 4px}
+.linklike:hover{color:var(--text)}
+
+/* REPORT */
+.report-head{text-align:center;margin-bottom:8px}
+.report-head .for{color:var(--muted);font-size:.9rem;margin-bottom:4px}
+.report-head h2{font-family:var(--serif);font-size:1.7rem;margin-bottom:2px}
+.report-head .prof{color:var(--gold-soft);font-size:.95rem}
+.score-hero{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:30px;margin:26px 0 6px;text-align:center}
+.ring{position:relative;width:170px;height:170px;flex:0 0 auto}
+.ring svg{transform:rotate(-90deg)}
+.ring .val{position:absolute;inset:0;display:grid;place-items:center;flex-direction:column}
+.ring .val b{font-family:var(--serif);font-size:2.9rem;line-height:1;display:block}
+.ring .val span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.verdict{max-width:330px;text-align:left}
+.verdict .label{font-family:var(--serif);font-size:1.5rem;margin-bottom:8px}
+.verdict p{color:var(--muted);font-size:.95rem}
+
+.section-title{font-family:var(--serif);font-size:1.15rem;margin:34px 0 16px;display:flex;align-items:center;gap:10px}
+.section-title::before{content:"";width:18px;height:2px;background:var(--gold);display:inline-block}
+
+.radar-box{display:flex;justify-content:center;margin:6px 0 8px}
+.dim-list{display:grid;gap:11px}
+.dim-row{display:grid;grid-template-columns:1fr auto;gap:6px 12px;align-items:center}
+.dim-row .name{font-size:.92rem;color:#dfe6f6}
+.dim-row .pct{font-weight:700;font-size:.85rem;font-variant-numeric:tabular-nums}
+.dim-row .track{grid-column:1/-1;height:8px;background:rgba(255,255,255,.07);border-radius:99px;overflow:hidden}
+.dim-row .track > i{display:block;height:100%;border-radius:99px;transition:width .8s cubic-bezier(.4,0,.2,1)}
+
+.recs{display:grid;gap:14px;margin-top:6px}
+.rec{background:rgba(255,255,255,.035);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:13px;padding:17px 19px}
+.rec h4{font-size:1rem;margin-bottom:6px;display:flex;align-items:center;gap:9px}
+.rec h4 .pri{font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;background:rgba(229,72,77,.16);color:#ff9ca0;padding:3px 8px;border-radius:99px;font-weight:700}
+.rec p{color:var(--muted);font-size:.9rem;margin-bottom:6px}
+.rec .fix{color:var(--teal);font-size:.88rem}
+.rec .fix b{color:var(--gold-soft)}
+
+.cta-final{margin-top:36px;background:linear-gradient(135deg,rgba(232,184,75,.12),rgba(52,211,166,.06));border:1px solid rgba(232,184,75,.28);border-radius:var(--radius);padding:30px 28px;text-align:center}
+.cta-final h3{font-family:var(--serif);font-size:1.5rem;margin-bottom:10px}
+.cta-final p{color:var(--muted);max-width:54ch;margin:0 auto 22px}
+.cta-btns{display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.fineprint{color:var(--muted-2);font-size:.78rem;margin-top:18px}
+
+.screen{display:none;animation:fade .4s ease}
+.screen.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.foot{text-align:center;color:var(--muted-2);font-size:.78rem;margin-top:26px}
+.foot a{color:var(--muted)}
+
+/* PRINT */
+@media print{
+  body{background:#fff;color:#111}
+  .wrap{max-width:100%}
+  .no-print{display:none!important}
+  .card{box-shadow:none;border:1px solid #ddd;background:#fff;color:#111}
+  .verdict .label,.report-head h2,.section-title,.cta-final h3,.rec h4{color:#111}
+  .dim-row .name,.rec p,.verdict p{color:#333}
+  .cta-final{background:#faf6ea;border-color:#e8d9a8}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="brandbar">
+    <div class="brand">
+      <span class="dot" id="brandDot">R</span>
+      <span id="brandName">REFERENTE<br><small id="brandTagline">por Gabriel Serrano</small></span>
+    </div>
+    <span class="tag-free no-print">Diagnóstico gratuito</span>
+  </div>
+
+  <!-- ===================== PANTALLA 1: INTRO ===================== -->
+  <section class="screen active" id="screen-intro">
+    <div class="card">
+      <div class="eyebrow">Diagnóstico de Autoridad Digital</div>
+      <h1>¿Qué tan cerca estás de ser <span class="accent">el referente</span> de tu sector?</h1>
+      <p class="lead">Eres excelente en lo tuyo. Pero si online no se nota, los clientes eligen a otro.
+        Este diagnóstico evalúa tu presencia digital en <b>8 dimensiones clave</b> y te entrega un
+        puntaje claro con los huecos exactos que te están costando clientes.</p>
+      <ul class="bullets">
+        <li><span class="ic">✓</span><div><b>3 minutos.</b> 16 preguntas rápidas, una por una.</div></li>
+        <li><span class="ic">✓</span><div><b>Reporte visual instantáneo</b> con tu puntaje y prioridades.</div></li>
+        <li><span class="ic">✓</span><div><b>Plan claro</b> de qué arreglar primero para atraer más clientes.</div></li>
+      </ul>
+      <button class="btn btn-primary" onclick="goData()">Empezar mi diagnóstico →</button>
+      <div class="meta-row">
+        <span>● Gratis</span><span>● Sin registro obligatorio</span><span>● Resultados al instante</span>
+      </div>
+    </div>
+    <p class="foot">Hecho por <b id="footName">Gabriel Serrano</b> · Estrategia de presencia digital para profesionales.</p>
+  </section>
+
+  <!-- ===================== PANTALLA 2: DATOS ===================== -->
+  <section class="screen" id="screen-data">
+    <div class="card">
+      <div class="eyebrow">Antes de empezar</div>
+      <h1 style="font-size:1.7rem">¿Para quién es este diagnóstico?</h1>
+      <p class="lead" style="margin-bottom:22px">Personalizamos tu reporte con estos datos.</p>
+      <div class="field">
+        <label>Nombre del profesional <span class="hint">(o tu nombre)</span></label>
+        <input id="in-name" type="text" placeholder="Ej. Dra. Andrea Salazar" autocomplete="off" />
+      </div>
+      <div class="field">
+        <label>Profesión / especialidad</label>
+        <input id="in-prof" type="text" placeholder="Ej. Ortodoncista · Abogado corporativo · Coach" autocomplete="off" />
+      </div>
+      <div class="note no-print">
+        <span>💡</span>
+        <div><b>Dos formas de usarlo:</b> respóndelo sobre <b>tu propio perfil</b>, o úsalo para
+        evaluar el perfil de alguien (observa su Instagram/LinkedIn y responde por él).</div>
+      </div>
+      <button class="btn btn-primary btn-block" id="startBtn" onclick="startQuiz()">Comenzar las 16 preguntas →</button>
+      <div class="q-nav"><button class="linklike" onclick="show('intro')">← Volver</button><span></span></div>
+    </div>
+  </section>
+
+  <!-- ===================== PANTALLA 3: PREGUNTAS ===================== -->
+  <section class="screen" id="screen-quiz">
+    <div class="card">
+      <div class="progress-wrap">
+        <div class="progress-top">
+          <span class="dim" id="q-dim">Dimensión</span>
+          <span id="q-count">1 / 16</span>
+        </div>
+        <div class="bar"><i id="q-bar" style="width:6%"></i></div>
+      </div>
+      <div class="q-num" id="q-numlabel">Pregunta 1</div>
+      <div class="q-text" id="q-text">…</div>
+      <div class="options" id="q-options"></div>
+      <div class="q-nav">
+        <button class="linklike" id="q-back" onclick="prevQ()">← Anterior</button>
+        <button class="linklike" id="q-skip" onclick="nextQ()" style="visibility:hidden"></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== PANTALLA 4: REPORTE ===================== -->
+  <section class="screen" id="screen-report">
+    <div class="card" id="reportCard">
+      <div class="report-head">
+        <div class="for">Diagnóstico de Autoridad Digital</div>
+        <h2 id="r-name">—</h2>
+        <div class="prof" id="r-prof">—</div>
+      </div>
+
+      <div class="score-hero">
+        <div class="ring">
+          <svg width="170" height="170" viewBox="0 0 170 170">
+            <circle cx="85" cy="85" r="74" fill="none" stroke="rgba(255,255,255,.08)" stroke-width="14"/>
+            <circle id="r-ring" cx="85" cy="85" r="74" fill="none" stroke="var(--gold)" stroke-width="14"
+              stroke-linecap="round" stroke-dasharray="465" stroke-dashoffset="465"/>
+          </svg>
+          <div class="val"><div><b id="r-score">0%</b><span>Autoridad</span></div></div>
+        </div>
+        <div class="verdict">
+          <div class="label" id="r-verdict">—</div>
+          <p id="r-verdict-desc">—</p>
+        </div>
+      </div>
+
+      <div class="section-title">Tu perfil en 8 dimensiones</div>
+      <div class="radar-box"><div id="r-radar"></div></div>
+      <div class="dim-list" id="r-dims"></div>
+
+      <div class="section-title">Tus prioridades para destacar</div>
+      <div class="recs" id="r-recs"></div>
+
+      <div class="cta-final no-print">
+        <h3 id="cta-title">Convierte estos huecos en tu ventaja</h3>
+        <p id="cta-desc">Estos puntos no son defectos: son las palancas exactas para que te elijan a ti.
+          Conversemos 15 minutos y te muestro cómo convertirte en el referente de tu sector.</p>
+        <div class="cta-btns">
+          <a class="btn btn-wa" id="cta-wa" href="#" target="_blank" rel="noopener">💬 Hablar con Gabriel por WhatsApp</a>
+          <button class="btn btn-ghost" onclick="window.print()">⬇ Descargar / Imprimir reporte (PDF)</button>
+        </div>
+        <div class="fineprint">Diagnóstico gratuito. La sesión estratégica no tiene compromiso.</div>
+        <div id="cta-kit" style="margin-top:14px"></div>
+      </div>
+
+      <div class="q-nav no-print" style="margin-top:22px">
+        <button class="linklike" onclick="restart()">↺ Hacer otro diagnóstico</button>
+        <span></span>
+      </div>
+    </div>
+    <p class="foot no-print">REFERENTE · Diagnóstico de Autoridad Digital · <span id="footYear"></span></p>
+  </section>
+
+</div>
+
+<script>
+/* ============================================================
+   ▼▼▼  CONFIG — EDITA SOLO ESTO  ▼▼▼
+   ============================================================ */
+const CONFIG = {
+  marca: "REFERENTE",
+  experto: "Gabriel Serrano",
+  tagline: "por Gabriel Serrano",
+  // Tu WhatsApp en formato internacional SIN '+' ni espacios. Perú = 51 + número.
+  // Ejemplo: 51987654321
+  whatsapp: "51965307614",
+  // Mensaje que llega prellenado a tu WhatsApp (se le agrega el puntaje automáticamente):
+  whatsappMsg: "Hola Gabriel 👋 Acabo de hacer el Diagnóstico de Autoridad Digital",
+  // (Opcional) enlace a tu producto digital / Kit Referente. Déjalo vacío si aún no lo tienes.
+  kitUrl: ""
+};
+/* ============================================================
+   ▲▲▲  FIN DE CONFIG — no necesitas tocar nada debajo  ▲▲▲
+   ============================================================ */
+
+/* ---------- DIMENSIONES Y PREGUNTAS ---------- */
+const DIMS = [
+  {id:"posicionamiento", nombre:"Posicionamiento"},
+  {id:"perfil",          nombre:"Perfil y bio"},
+  {id:"prueba",          nombre:"Prueba social"},
+  {id:"contenido",       nombre:"Contenido y visibilidad"},
+  {id:"captacion",       nombre:"Captación y conversión"},
+  {id:"visual",          nombre:"Identidad visual"},
+  {id:"diferenciacion",  nombre:"Diferenciación"},
+  {id:"reputacion",      nombre:"Reputación y buscadores"}
+];
+
+const QUESTIONS = [
+  // 1. Posicionamiento
+  {dim:"posicionamiento", q:"Al ver su perfil, ¿queda claro EN SEGUNDOS a quién ayuda y con qué resultado?",
+   opts:["No se entiende bien a qué se dedica","Se entiende la profesión, pero no a quién ayuda ni el resultado","Se entiende, pero de forma genérica","Clarísimo: a quién ayuda, cómo y qué resultado logra"]},
+  {dim:"posicionamiento", q:"¿Tiene un nicho o especialidad definida, o intenta atender a todos?",
+   opts:["'Hago de todo', sin enfoque","Una especialidad principal, pero poco visible","Especialidad clara, mezclada con otras cosas","Nicho/especialidad muy clara y consistente"]},
+  // 2. Perfil
+  {dim:"perfil", q:"La bio / titular del perfil, ¿comunica autoridad y propuesta de valor, o solo el cargo?",
+   opts:["Vacía, genérica o solo el nombre","Solo el cargo o profesión","Cargo + algo de propuesta de valor","Propuesta potente + prueba + llamado a la acción"]},
+  {dim:"perfil", q:"Foto de perfil, portada y destacados, ¿proyectan a un profesional de primer nivel?",
+   opts:["Descuidados o inexistentes","Básicos, poco profesionales","Correctos pero mejorables","Impecables y coherentes con autoridad"]},
+  // 3. Prueba social
+  {dim:"prueba", q:"¿Muestra testimonios, casos reales o resultados de clientes?",
+   opts:["Ninguno","Alguno suelto, sin destacar","Algunos, pero poco visibles","Sí, destacados y de forma constante"]},
+  {dim:"prueba", q:"¿Tiene reseñas o recomendaciones visibles (Google, Doctoralia, LinkedIn, comentarios)?",
+   opts:["No tiene o no se ven","Muy pocas","Varias, pero no las aprovecha","Muchas y bien aprovechadas"]},
+  // 4. Contenido
+  {dim:"contenido", q:"¿Con qué frecuencia publica contenido de valor (no solo promociones)?",
+   opts:["No publica / lleva meses inactivo","Muy de vez en cuando, sin plan","Regular, pero sin estrategia clara","Constante, estratégico y con valor real"]},
+  {dim:"contenido", q:"Su contenido, ¿lo posiciona como experto o solo muestra el servicio y el precio?",
+   opts:["Solo promociones o nada","Mayormente promocional","Mezcla, sin foco en autoridad","Educa y construye autoridad"]},
+  // 5. Captación
+  {dim:"captacion", q:"Si alguien quiere contratarlo HOY, ¿hay un camino claro y fácil (link, agenda, WhatsApp, CTA)?",
+   opts:["No hay forma clara de contactar/comprar","Solo un DM, sin guía","Hay contacto, pero sin llamado a la acción claro","CTA claro + camino directo a agendar o comprar"]},
+  {dim:"captacion", q:"¿Tiene web o landing que convierta al interesado en cita o cliente?",
+   opts:["No tiene","Tiene algo desactualizado o pobre","Tiene web, pero no convierte bien","Landing/web clara orientada a conversión"]},
+  // 6. Visual
+  {dim:"visual", q:"¿Hay coherencia visual (colores, tipografías, estilo) que se sienta como una marca?",
+   opts:["Sin coherencia, improvisado","Algo de estilo, pero inconsistente","Coherente a medias","Identidad visual fuerte y consistente"]},
+  {dim:"visual", q:"Visualmente, ¿se diferencia o se ve igual a cualquier otro de su rubro?",
+   opts:["Genérico, indistinguible","Apenas se distingue","Algo distintivo","Visualmente memorable y propio"]},
+  // 7. Diferenciación
+  {dim:"diferenciacion", q:"¿Comunica claramente por qué elegirlo a ÉL y no a la competencia?",
+   opts:["No comunica ninguna diferencia","Diferencias genéricas ('calidad', 'experiencia')","Algún diferenciador real, pero poco claro","Diferenciador claro y convincente"]},
+  {dim:"diferenciacion", q:"¿Tiene un ángulo, historia o método propio que lo haga único?",
+   opts:["Ninguno","Algo, pero no lo usa","Tiene historia/método, pero poco visible","Ángulo o método propio bien comunicado"]},
+  // 8. Reputación
+  {dim:"reputacion", q:"Si lo googleas, ¿aparece sólido (perfil, reseñas, web) o es difícil de encontrar?",
+   opts:["No aparece / difícil de encontrar","Aparece poco y desordenado","Aparece, pero la primera impresión es mejorable","Aparece sólido y genera confianza"]},
+  {dim:"reputacion", q:"¿Gestiona activamente su reputación online (responde, pide reseñas, cuida su imagen)?",
+   opts:["No la gestiona","Reactivo y esporádico","A veces","Sí, de forma activa y estratégica"]}
+];
+
+/* ---------- RECOMENDACIONES POR DIMENSIÓN ---------- */
+const RECS = {
+  posicionamiento:{t:"Tu posicionamiento no está claro",p:"Si en 3 segundos no se entiende a quién ayudas y con qué resultado, la gente sigue de largo. Un mensaje difuso te hace competir por precio.",fix:"Definimos tu <b>mensaje central, nicho y propuesta de valor</b> para que digas exactamente a quién transformas y cómo."},
+  perfil:{t:"Tu perfil no comunica autoridad",p:"Tu bio y tus primeras impresiones son tu 'portada de libro'. Si solo dicen el cargo, desaprovechas el espacio más valioso que tienes.",fix:"Optimizamos <b>bio, titular, destacados y foto/portada</b> en Instagram y LinkedIn para que respiren autoridad."},
+  prueba:{t:"Falta prueba social visible",p:"La gente confía en quien ya ayudó a otros como ellos. Sin testimonios ni casos, partes de cero en confianza cada vez.",fix:"Diseñamos un <b>sistema de testimonios y casos</b> bien presentados, y aprovechamos tus reseñas existentes."},
+  contenido:{t:"Tu contenido no te posiciona",p:"Publicar poco —o solo promociones— te deja invisible. El contenido estratégico es lo que te vuelve el referente al que siguen.",fix:"Te armamos <b>pilares, calendario y piezas de contenido</b> que educan y construyen tu autoridad."},
+  captacion:{t:"Pierdes clientes por falta de un camino claro",p:"Si un interesado no sabe cómo contratarte en 1 clic, lo pierdes. La atención sin conversión no sirve.",fix:"Creamos tu <b>landing y sistema de captación</b> (CTA, agenda, WhatsApp) para convertir interés en citas."},
+  visual:{t:"Tu identidad visual no construye marca",p:"Sin coherencia visual te ves improvisado y olvidable. La estética es percepción de calidad antes de que digas una palabra.",fix:"Construimos tu <b>identidad visual base</b> (paleta, tipografías, plantillas) coherente y memorable."},
+  diferenciacion:{t:"No se nota por qué elegirte a ti",p:"Si te ves igual al resto, la decisión la toma el precio. La diferenciación es lo que justifica cobrar más.",fix:"Encontramos y comunicamos tu <b>ángulo y método propio</b> para que destaques entre los iguales."},
+  reputacion:{t:"Tu reputación online no juega a tu favor",p:"Te googlean antes de contratarte. Si no apareces sólido, generas dudas justo en el momento de decidir.",fix:"Trabajamos tu <b>presencia en buscadores y gestión de reputación</b> para que la primera impresión venda por ti."}
+};
+
+const VERDICTS = [
+  {min:0,  max:40, label:"Invisible",                    color:"var(--red)",    desc:"Hoy, online, prácticamente no existes para quien no te conoce. La buena noticia: aquí está el mayor potencial de crecimiento de clientes."},
+  {min:41, max:60, label:"Presente, sin estrategia",     color:"var(--orange)", desc:"Estás, pero no destacas. Hay base, pero sin dirección clara estás dejando clientes (y dinero) sobre la mesa."},
+  {min:61, max:80, label:"En camino a Referente",        color:"var(--amber)",  desc:"Vas bien encaminado. Con ajustes estratégicos en tus puntos débiles, puedes pasar a dominar tu sector."},
+  {min:81, max:100,label:"Referente",                     color:"var(--green)",  desc:"Tu presencia ya proyecta autoridad. El reto ahora es sostenerla, escalarla y convertirla en más y mejores clientes."}
+];
+
+/* ---------- ESTADO ---------- */
+let idx = 0;
+const answers = new Array(QUESTIONS.length).fill(null);
+let pName = "", pProf = "";
+
+/* ---------- INIT ---------- */
+function colorFor(p){ if(p<=40)return"var(--red)"; if(p<=60)return"var(--orange)"; if(p<=80)return"var(--amber)"; return"var(--green)"; }
+function show(id){ document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active')); document.getElementById('screen-'+id).classList.add('active'); window.scrollTo({top:0,behavior:'smooth'}); }
+
+function applyConfig(){
+  document.getElementById('brandDot').textContent = CONFIG.marca.charAt(0).toUpperCase();
+  document.getElementById('brandName').childNodes[0].nodeValue = CONFIG.marca;
+  document.getElementById('brandTagline').textContent = CONFIG.tagline;
+  document.getElementById('footName').textContent = CONFIG.experto;
+  document.getElementById('footYear').textContent = new Date().getFullYear();
+  document.title = "Diagnóstico de Autoridad Digital — " + CONFIG.marca;
+}
+applyConfig();
+
+function goData(){ show('data'); setTimeout(()=>document.getElementById('in-name').focus(),300); }
+
+function startQuiz(){
+  pName = (document.getElementById('in-name').value||"").trim() || "Tu perfil";
+  pProf = (document.getElementById('in-prof').value||"").trim() || "Profesional";
+  idx = 0;
+  show('quiz');
+  renderQ();
+}
+
+function renderQ(){
+  const Q = QUESTIONS[idx];
+  const dim = DIMS.find(d=>d.id===Q.dim);
+  document.getElementById('q-dim').textContent = dim.nombre;
+  document.getElementById('q-count').textContent = (idx+1)+" / "+QUESTIONS.length;
+  document.getElementById('q-bar').style.width = ((idx+1)/QUESTIONS.length*100)+"%";
+  document.getElementById('q-numlabel').textContent = "Pregunta "+(idx+1);
+  document.getElementById('q-text').textContent = Q.q;
+  const box = document.getElementById('q-options');
+  box.innerHTML = "";
+  Q.opts.forEach((txt,i)=>{
+    const b = document.createElement('button');
+    b.className = "opt"+(answers[idx]===i?" sel":"");
+    b.innerHTML = '<span class="key">'+(i)+'</span><span>'+txt+'</span>';
+    b.onclick = ()=>choose(i);
+    box.appendChild(b);
+  });
+  document.getElementById('q-back').style.visibility = idx===0 ? "hidden":"visible";
+}
+
+function choose(i){
+  answers[idx] = i;
+  document.querySelectorAll('#q-options .opt').forEach((el,j)=>el.classList.toggle('sel',j===i));
+  setTimeout(nextQ, 220);
+}
+function nextQ(){ if(answers[idx]===null) return; if(idx<QUESTIONS.length-1){idx++;renderQ();} else {buildReport();} }
+function prevQ(){ if(idx>0){idx--;renderQ();} }
+
+/* keyboard support */
+document.addEventListener('keydown',e=>{
+  if(!document.getElementById('screen-quiz').classList.contains('active'))return;
+  if(['0','1','2','3'].includes(e.key)) choose(parseInt(e.key));
+  if(e.key==='ArrowLeft') prevQ();
+});
+
+/* ---------- REPORTE ---------- */
+function dimScores(){
+  const out = {};
+  DIMS.forEach(d=>{
+    const qs = QUESTIONS.map((q,i)=>({q,i})).filter(x=>x.q.dim===d.id);
+    let sum=0,max=0;
+    qs.forEach(x=>{ sum += (answers[x.i]||0); max += 3; });
+    out[d.id] = Math.round(sum/max*100);
+  });
+  return out;
+}
+
+function buildReport(){
+  const ds = dimScores();
+  const overall = Math.round(DIMS.reduce((a,d)=>a+ds[d.id],0)/DIMS.length);
+
+  document.getElementById('r-name').textContent = pName;
+  document.getElementById('r-prof').textContent = pProf;
+
+  // ring + score
+  const v = VERDICTS.find(x=>overall>=x.min && overall<=x.max) || VERDICTS[0];
+  document.getElementById('r-score').textContent = overall+"%";
+  document.getElementById('r-score').style.color = colorFor(overall);
+  document.getElementById('r-verdict').textContent = v.label;
+  document.getElementById('r-verdict').style.color = colorFor(overall);
+  document.getElementById('r-verdict-desc').textContent = v.desc;
+  const ring = document.getElementById('r-ring');
+  ring.style.stroke = colorFor(overall);
+  const circ = 465;
+  setTimeout(()=>{ ring.style.transition="stroke-dashoffset 1.1s cubic-bezier(.4,0,.2,1)"; ring.style.strokeDashoffset = circ*(1-overall/100); },120);
+
+  // radar
+  document.getElementById('r-radar').innerHTML = radarSVG(ds);
+
+  // dim bars
+  const dl = document.getElementById('r-dims'); dl.innerHTML="";
+  DIMS.forEach(d=>{
+    const p = ds[d.id];
+    const row = document.createElement('div'); row.className="dim-row";
+    row.innerHTML = '<span class="name">'+d.nombre+'</span><span class="pct" style="color:'+colorFor(p)+'">'+p+'%</span>'+
+      '<span class="track"><i style="width:0%;background:'+colorFor(p)+'" data-w="'+p+'"></i></span>';
+    dl.appendChild(row);
+  });
+  setTimeout(()=>document.querySelectorAll('#r-dims .track > i').forEach(i=>i.style.width=i.dataset.w+'%'),200);
+
+  // recommendations: 3 lowest dimensions under 70
+  const recsBox = document.getElementById('r-recs'); recsBox.innerHTML="";
+  const sorted = DIMS.map(d=>({d,p:ds[d.id]})).sort((a,b)=>a.p-b.p);
+  let shown = sorted.filter(x=>x.p<70).slice(0,3);
+  if(shown.length===0) shown = sorted.slice(0,2); // si todo está alto, muestra 2 de mejora
+  shown.forEach((x,k)=>{
+    const r = RECS[x.d.id];
+    const card = document.createElement('div'); card.className="rec";
+    card.innerHTML = '<h4>'+(k===0?'<span class="pri">Prioridad 1</span>':'')+r.t+' &middot; '+x.p+'%</h4>'+
+      '<p>'+r.p+'</p><div class="fix">✦ Cómo lo resolvemos: '+r.fix+'</div>';
+    recsBox.appendChild(card);
+  });
+
+  // CTA WhatsApp
+  const msg = CONFIG.whatsappMsg + ". Resultado: " + overall + "% (" + v.label + "). Profesión: " + pProf + ". Quiero saber cómo ser el referente de mi sector.";
+  document.getElementById('cta-wa').href = "https://wa.me/"+CONFIG.whatsapp+"?text="+encodeURIComponent(msg);
+
+  // Kit (producto digital) opcional
+  const kitBox = document.getElementById('cta-kit');
+  if(CONFIG.kitUrl && CONFIG.kitUrl.trim()){
+    kitBox.innerHTML = '¿Aún no listo para un servicio? <a href="'+CONFIG.kitUrl+'" target="_blank" rel="noopener" style="color:var(--gold-soft);font-weight:700">Llévate el Kit Referente →</a>';
+    kitBox.style.cssText = "margin-top:14px;color:var(--muted);font-size:.85rem";
+  } else { kitBox.innerHTML=""; }
+
+  show('report');
+}
+
+/* ---------- RADAR SVG (8 ejes, sin librerías) ---------- */
+function radarSVG(ds){
+  const size=360, cx=size/2, cy=size/2, R=110;
+  const n=DIMS.length;
+  const labels=["Posición","Perfil","Prueba","Contenido","Captación","Visual","Difer.","Reputación"];
+  const ids=DIMS.map(d=>d.id);
+  function pt(i,r){ const a=-Math.PI/2 + i*2*Math.PI/n; return [cx+r*Math.cos(a), cy+r*Math.sin(a)]; }
+  let svg='<svg width="'+size+'" height="'+size+'" viewBox="0 0 '+size+' '+size+'" style="max-width:100%;height:auto">';
+  // grid rings
+  [0.25,0.5,0.75,1].forEach(f=>{
+    let p=""; for(let i=0;i<n;i++){const[x,y]=pt(i,R*f);p+=(i?"L":"M")+x.toFixed(1)+" "+y.toFixed(1);} p+="Z";
+    svg+='<path d="'+p+'" fill="none" stroke="rgba(255,255,255,.09)" stroke-width="1"/>';
+  });
+  // axes
+  for(let i=0;i<n;i++){const[x,y]=pt(i,R);svg+='<line x1="'+cx+'" y1="'+cy+'" x2="'+x.toFixed(1)+'" y2="'+y.toFixed(1)+'" stroke="rgba(255,255,255,.08)"/>';}
+  // data polygon
+  let dp="";
+  for(let i=0;i<n;i++){const v=ds[ids[i]]/100;const[x,y]=pt(i,R*v);dp+=(i?"L":"M")+x.toFixed(1)+" "+y.toFixed(1);} dp+="Z";
+  svg+='<path d="'+dp+'" fill="rgba(232,184,75,.20)" stroke="#e8b84b" stroke-width="2" stroke-linejoin="round"/>';
+  for(let i=0;i<n;i++){const v=ds[ids[i]]/100;const[x,y]=pt(i,R*v);svg+='<circle cx="'+x.toFixed(1)+'" cy="'+y.toFixed(1)+'" r="3.2" fill="#e8b84b"/>';}
+  // labels
+  for(let i=0;i<n;i++){const[x,y]=pt(i,R+22);let anchor="middle";if(x>cx+8)anchor="start";if(x<cx-8)anchor="end";
+    svg+='<text x="'+x.toFixed(1)+'" y="'+(y+3).toFixed(1)+'" fill="#9aa6c4" font-size="11" text-anchor="'+anchor+'">'+labels[i]+'</text>';}
+  svg+='</svg>';
+  return svg;
+}
+
+function restart(){ idx=0; answers.fill(null); document.getElementById('in-name').value=""; document.getElementById('in-prof').value=""; show('intro'); }
+
+/* enter key on data screen */
+document.getElementById('in-prof').addEventListener('keydown',e=>{ if(e.key==='Enter') startQuiz(); });
+</script>
+</body>
+</html>
